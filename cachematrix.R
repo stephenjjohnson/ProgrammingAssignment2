@@ -2,12 +2,12 @@
 ## Define functions to
 ## 1. Set up a special object to store a matrix and cache its inverse
 ## 2. Calculate the inverse of the matrix stores in the object from (1.) if
-##      it hasn't already been calculated. and cache the inverse matrix in the object.
+##      it hasn't already been calculated, and cache the inverse matrix in the object.
 ##      If it has already been calculated then just retrieve the cached copy.
 
 
 
-## First function: `makeCacheMatrix` takes an invertible matrix, x and return a list containing functions to
+## First function: `makeCacheMatrix` takes an invertible matrix, x and returns a list containing functions to
 ## 1. set the contents of the matrix
 ## 2. retrieve the contents of the matrix
 ## 3. set the contents of the inverse matrix using the solve() function
@@ -32,10 +32,11 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Second function, `cacheSolve` takes the list output by makeCacheMatrix and
-## 1. check to see if the inverse matrix has already been calculated
+## Second function, `cacheSolve` takes the list output by `makeCacheMatrix` and
+## 1. checks to see if the inverse matrix has already been calculated
 ## 2. If it has, then retrieve the inverse matrix from the cache
-## 3. If not, then retrive the  original matrix and calculate its inverse using the solve() function
+## 3. If not, then retrive the original matrix, calculate its inverse using the solve() function
+##      and store the inverse in the cache
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
         m <- x$getinverse() # Retrieve the contents of the cache that may or may not contain the inverse matrix
